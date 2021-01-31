@@ -2,9 +2,12 @@
   "name": "auth.godbolt.org",
   "version": "0.0.1",
   "description": "Authentication for Compiler Explorer",
-  "main": "app.js",
+  "main": "src/app.ts",
   "scripts": {
-    "test": "test"
+    "start": "npm run build:live",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/app.ts",
+    "test": "jest --forceExit --coverage --verbose"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,21 @@
   "bugs": {
     "url": "https://github.com/compiler-explorer/auth/issues"
   },
-  "homepage": "https://github.com/compiler-explorer/auth#readme"
+  "homepage": "https://github.com/compiler-explorer/auth#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "nodemon": "^2.0.7",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3",
+    "webpack-cli": "^4.4.0"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.20",
+    "@types/supertest": "^2.0.10",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3",
+    "ts-jest": "^26.5.0"
+  }
 }
