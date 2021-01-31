@@ -1,0 +1,15 @@
+# build generated files
+/.node-bin
+/.npm-updated
+/.nyc_output
+/node_modules
+/out
+
+# IDE project files
+/nbproject
+*.vscode
+*.code-workspace
+
+# random bits
+*.heapsnapshot
+*.swp

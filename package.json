@@ -1,0 +1,19 @@
+{
+  "name": "auth.godbolt.org",
+  "version": "0.0.1",
+  "description": "Authentication for Compiler Explorer",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/compiler-explorer/auth.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/compiler-explorer/auth/issues"
+  },
+  "homepage": "https://github.com/compiler-explorer/auth#readme"
+}
