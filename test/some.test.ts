@@ -7,3 +7,10 @@ describe('GET /login', () => {
             .expect(200);
     });
 });
+
+describe('Should health check', () => {
+    it('should return 200 OK', () => {
+        return request(app).get('/healthcheck')
+            .expect(200);
+    });
+});

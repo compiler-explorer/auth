@@ -12,5 +12,8 @@ app.get('/login', (req: Request, res: Response) => {
         message: 'ooh please log in',
     });
 });
+app.get('/healthcheck', (req: Request, res: Response) => {
+    res.send("all ok");
+});
 
 export default app;
