@@ -11,3 +11,7 @@ Need to consider:
 
 * logging
 * security (don't run on the admin node)
+
+**PLEASE NOTE THAT ANYTHING CHECKED IN HERE GETS DEPLOYED**
+
+On the admin node there's a `./restart-auth.sh` script which will pull down the latest auth docker file.
