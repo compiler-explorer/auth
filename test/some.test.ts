@@ -14,3 +14,14 @@ describe('Should health check', () => {
             .expect(200);
     });
 });
+
+describe('The main page', () => {
+    it('should return 200 OK', () =>{
+        return request(app).get('/')
+            .expect(200);
+    });
+    it('should mention compiler explorer', () =>{
+        return request(app).get('/')
+            .expect(/Compiler Explorer/);
+    });
+});

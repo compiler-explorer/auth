@@ -17,6 +17,7 @@ COPY package*.json ./
 
 RUN npm ci --only=production
 COPY --from=builder /usr/src/app/out/lib .
+COPY views views
 
 EXPOSE 3000
 
