@@ -11,6 +11,10 @@ Need to consider:
 
 * logging
 * security (don't run on the admin node)
+* caching or removal therein on cloudfront
+* webpack / typescript for the client side?
+* client-side testing
+* better deployment (docker running on admin node which is not ideal)
 
 **PLEASE NOTE THAT ANYTHING CHECKED IN HERE GETS DEPLOYED**
 
