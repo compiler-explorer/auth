@@ -3,7 +3,4 @@ extends layout.pug
 block prepend content
     h1 Compiler Explorer Authentication Server
 
-    if user
-        div Ooh you're logged in
-    else
-        a(href="/login") Login
+    a(href="/login/google") Login with Google

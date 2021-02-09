@@ -14,3 +14,6 @@
 # random bits
 *.heapsnapshot
 *.swp
+
+# Sensitive things
+.env
