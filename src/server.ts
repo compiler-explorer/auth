@@ -1,7 +1,9 @@
-import app from './app';
+import {initialiseApp} from "./app";
+import {configFromEnv} from "./config";
 
-const server = app.listen(app.get('port'), () => {
-    console.log(`Auth server running at http://localhost:${app.get('port')} in ${app.get('env')} mode`);
+const config = configFromEnv();
+const app = initialiseApp(config);
+
+app.listen(app.get('port'), () => {
+    console.log(`Auth server running at ${config.ServerScheme}://${config.ServerHostname}:${config.Port} in ${app.get('env')} mode`);
 });
-
-export default server;

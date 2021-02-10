@@ -1,8 +1,9 @@
 import {Request, Response, Router} from 'express';
 import {googleInit, googleRouter} from "./google";
+import {AppConfig} from "../config";
 
-export function authInit(serverFullUrl: string) {
-    googleInit(serverFullUrl,  process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET);
+export function authInit(serverFullUrl: string, appConfig: AppConfig) {
+    googleInit(serverFullUrl, appConfig.GoogleClientId, appConfig.GoogleClientSecret);
 }
 
 export function loginRouter(renderOptions: { httpRoot: string }) {
