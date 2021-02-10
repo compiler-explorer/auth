@@ -34,6 +34,7 @@ export function initialiseApp(config: AppConfig) {
     app.use(lusca.xframe("SAMEORIGIN"));
     app.use(lusca.xssProtection(true));
     app.use((req: Request, res: Response, next: NextFunction) => {
+        res.set('Cache-Control', 'no-store'); // Cheesey solution, if solution it be.
         res.locals.user = req.user;
         next();
     });
