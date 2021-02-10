@@ -25,6 +25,9 @@ export function initialiseApp(config: AppConfig) {
     app.set('views', './views');
     app.set('view engine', 'pug')
 
+    // Healthchecks before the logging else...the log is 99% healthcheck.
+    app.get('/healthcheck', (req: Request, res: Response) => res.send("all ok"));
+
     app.use(morgan('combined'));
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({extended: true}));
@@ -49,7 +52,6 @@ export function initialiseApp(config: AppConfig) {
     app.get('/', (req: Request, res: Response) => {
         res.render('index', renderOptions);
     });
-    app.get('/healthcheck', (req: Request, res: Response) => res.send("all ok"));
     app.use('/login', loginRouter(renderOptions));
     return app;
 }
