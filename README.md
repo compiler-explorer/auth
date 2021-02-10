@@ -33,3 +33,6 @@ GOOGLE_CLIENT_SECRET=YOURSECRETHERE
 To use the Compiler Explorer google IDs, currently those are on the admin node.
 If you're an admin, you can find them pretty easily, or ask Matt. These values
 are for a "Compiler Explorer Beta" token, not a "real" one.
+
+Then run `npm install` and then `npm start`, which will launch an auto-updating
+server on port 3000.
