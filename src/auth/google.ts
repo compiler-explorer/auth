@@ -2,14 +2,14 @@ import {Request, Response, Router} from 'express';
 import passport from "passport";
 import {Strategy, VerifyCallback} from "passport-google-oauth2";
 
-export function googleInit(serverFullUrl: string, clientID: string, clientSecret: string) {
+export function googleInit(serverFullUrl: URL, clientID: string, clientSecret: string) {
     passport.use(
         new Strategy(
             {
                 clientID: clientID,
                 clientSecret: clientSecret,
                 // TODO: this is ugly special knowledge of where things mount
-                callbackURL: `${serverFullUrl}/login/google/callback`
+                callbackURL: `${serverFullUrl}login/google/callback`
             },
             (accessToken: string, refreshToken: string, profile: any, cb: VerifyCallback) => {
                 // console.log("Ooh", accessToken, refreshToken, profile);

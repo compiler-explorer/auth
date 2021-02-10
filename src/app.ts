@@ -9,7 +9,7 @@ import {authInit, loginRouter} from "./auth/login";
 import {AppConfig} from "./config";
 
 export function initialiseApp(config: AppConfig) {
-    const externalFullUrl = new URL(`${(config.ServerScheme)}://${(config.ServerHostname)}:${(config.ExternalPort)}`).href;
+    const externalFullUrl = new URL(`${(config.ServerScheme)}://${(config.ServerHostname)}:${(config.ExternalPort)}`);
     authInit(externalFullUrl, config);
 
     passport.serializeUser((user, cb) => {
@@ -20,7 +20,7 @@ export function initialiseApp(config: AppConfig) {
     });
 
     const app = express();
-    app.set('externalUrl', externalFullUrl);
+    app.set('externalUrl', externalFullUrl.href);
     app.set('port', config.LocalPort);
     app.set('views', './views');
     app.set('view engine', 'pug')

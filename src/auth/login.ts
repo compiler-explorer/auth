@@ -2,7 +2,7 @@ import {Request, Response, Router} from 'express';
 import {googleInit, googleRouter} from "./google";
 import {AppConfig} from "../config";
 
-export function authInit(serverFullUrl: string, appConfig: AppConfig) {
+export function authInit(serverFullUrl: URL, appConfig: AppConfig) {
     googleInit(serverFullUrl, appConfig.GoogleClientId, appConfig.GoogleClientSecret);
 }
 
