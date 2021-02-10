@@ -4,6 +4,11 @@ block prepend content
     h1 Compiler Explorer Authentication Server
 
     if user
-        div Ooh you're logged in
+        div
+            | Ooh you're logged in as
+            |
+            span= user.name.givenName
+            if user.picture
+                img.profile(src=user.picture)
     else
         a(href="/login") Login
