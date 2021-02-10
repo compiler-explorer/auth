@@ -5,5 +5,5 @@ const config = configFromEnv();
 const app = initialiseApp(config);
 
 app.listen(app.get('port'), () => {
-    console.log(`Auth server running at ${config.ServerScheme}://${config.ServerHostname}:${config.Port} in ${app.get('env')} mode`);
+    console.log(`Auth server running at ${app.get('externalUrl')} in ${app.get('env')} mode`);
 });

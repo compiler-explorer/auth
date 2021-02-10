@@ -9,7 +9,8 @@ import {authInit, loginRouter} from "./auth/login";
 import {AppConfig} from "./config";
 
 export function initialiseApp(config: AppConfig) {
-    authInit(`${(config.ServerScheme)}://${(config.ServerHostname)}:${(config.Port)}`, config);
+    const externalFullUrl = new URL(`${(config.ServerScheme)}://${(config.ServerHostname)}:${(config.ExternalPort)}`).href;
+    authInit(externalFullUrl, config);
 
     passport.serializeUser((user, cb) => {
         cb(null, user);
@@ -19,13 +20,16 @@ export function initialiseApp(config: AppConfig) {
     });
 
     const app = express();
-    app.set('port', config.Port);
+    app.set('externalUrl', externalFullUrl);
+    app.set('port', config.LocalPort);
     app.set('views', './views');
     app.set('view engine', 'pug')
 
     app.use(morgan('combined'));
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({extended: true}));
+    // TODO: Warning: connect.session() MemoryStore is not Warning: connect.session() MemoryStore is
+    //       not designed for a production environment, as it will leak memory, and will not scale past a single process.
     app.use(expressSession({secret: config.ExpressSecret, resave: true, saveUninitialized: true}));
 
     app.use(passport.initialize());

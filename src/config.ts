@@ -1,6 +1,7 @@
 export interface AppConfig {
     ExpressSecret: string;
-    Port: number;
+    LocalPort: number;
+    ExternalPort: number;
     ServerHostname: string;
     ServerScheme: string;
     GoogleClientId: string;
@@ -10,7 +11,8 @@ export interface AppConfig {
 export function configFromEnv(): AppConfig {
     return {
         ExpressSecret: process.env.EXPRESS_SECRET,
-        Port: +(process.env.PORT || 3000),
+        LocalPort: +(process.env.PORT || 3000),
+        ExternalPort: +(process.env.EXTERNAL_PORT || process.env.PORT || 3000),
         ServerHostname: process.env.SERVER_HOSTNAME || 'localhost',
         ServerScheme: process.env.SERVER_SCHEME || 'http',
         GoogleClientId: process.env.GOOGLE_CLIENT_ID,
@@ -21,7 +23,8 @@ export function configFromEnv(): AppConfig {
 export function fakeConfig(): AppConfig {
     return {
         ExpressSecret: "Some express secret",
-        Port: 3000,
+        LocalPort: 3000,
+        ExternalPort: 3000,
         ServerHostname: 'localhost',
         ServerScheme: 'http',
         GoogleClientId: "Google client ID",
