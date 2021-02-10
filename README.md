@@ -19,3 +19,17 @@ Need to consider:
 **PLEASE NOTE THAT ANYTHING CHECKED IN HERE GETS DEPLOYED**
 
 On the admin node there's a `./restart-auth.sh` script which will pull down the latest auth docker file.
+
+## To run locally
+
+Create a `.env` file with `KEY=VALUE` pairs, including:
+
+```
+EXPRESS_SECRET=some-made-up-secret-of-your-own
+GOOGLE_CLIENT_ID=YOURCLIENTIDHERE
+GOOGLE_CLIENT_SECRET=YOURSECRETHERE
+```
+
+To use the Compiler Explorer google IDs, currently those are on the admin node.
+If you're an admin, you can find them pretty easily, or ask Matt. These values
+are for a "Compiler Explorer Beta" token, not a "real" one.
