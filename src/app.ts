@@ -31,8 +31,8 @@ export function initialiseApp(config: AppConfig) {
     app.use(morgan('combined'));
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({extended: true}));
-    // TODO: Warning: connect.session() MemoryStore is not Warning: connect.session() MemoryStore is
-    //       not designed for a production environment, as it will leak memory, and will not scale past a single process.
+    // TODO: Warning: connect.session() MemoryStore is not designed for a production environment, as it will leak
+    //       memory, and will not scale past a single process.
     app.use(expressSession({secret: config.ExpressSecret, resave: true, saveUninitialized: true}));
 
     app.use(passport.initialize());
